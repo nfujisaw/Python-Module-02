@@ -14,12 +14,14 @@ class WaterError(GardenError):
     def __init__(self, message: str = "Unknown water error"):
         super().__init__(message)
 
+
 def test_plant_error() -> None:
     raise PlantError("The tomato plant is wilting!")
 
 
 def test_water_error() -> None:
     raise WaterError("Not enough water in the tank!")
+
 
 def main() -> None:
     print("=== Custom Garden Errors Demo ===")
@@ -36,9 +38,6 @@ def main() -> None:
         test_water_error()
     except WaterError as e:
         print(f"Caught WaterError: {e}")
-
-#これってtry exceptどっちでもerror起きるってこと？
-#全部のエラーキャッチできるようにできるようにしてるからtry  exceptどっちもエラーでるのか
 
     print("\nTesting catching all garden errors...")
     try:
